@@ -6,7 +6,7 @@ export const sellerLogin = async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        if (password === password.env.SELLER_PASSWORD && email === process.env.SELLER_EMAIL) {
+        if (password === process.env.SELLER_PASSWORD && email === process.env.SELLER_EMAIL) {
             const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '7d' });
 
             res.cookie('sellerToken', token, {
@@ -20,7 +20,7 @@ export const sellerLogin = async (req, res) => {
             return res.json({ success: true, message: "Logged In" });
 
         } else {
-            return res.json({ success: false, message: "Invald Credentials" })
+            return res.json({ success: false, message: "Invalid Credentials" })
         }
     } catch (error) {
         console.log(error.message);
