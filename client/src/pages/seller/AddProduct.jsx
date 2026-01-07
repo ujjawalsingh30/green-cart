@@ -17,20 +17,45 @@ const AddProduct = () => {
     const onSubmitHandler = async (event) => {
         try {
             event.preventDefault();
+            
+// ✅ FIX: Filter valid files FIRST (was at line 44)
+            const validFile= files.filter(file => file !== undefined && file !== null);
+            
+            console.log("Files:", files);
+            console.log("Valid files:", validFile);
+
+            // ✅ FIX: Check validFile instead of files (line 24)
+            if (validFile.length === 0) {
+                toast.error("Please select at least one image");
+                return;
+            }
+
+            // ✅ FIX: Validate category (was missing)
+            if (!category || category === '') {
+                toast.error("Please select a category");
+                return;
+            }
 
             const productData = {
                 name,
-                description: description.split('/n'),
+                description: description.split('\n'),
                 category,
-                price,
-                offerPrice
+                price: Number(price), 
+                offerPrice: Number(offerPrice) 
             }
 
             const formData = new FormData();
             formData.append('productData', JSON.stringify(productData));
-            for (let i = 0; 1 > files.length; i++) {
+            for (let i = 0; 1 < files.length; i++) {
                 formData.append('images', files[i])
             }
+
+            // Filter out undefined/null files
+            validFile.forEach((file) => {
+                formData.append('images', file);
+            });
+
+            console.log("Sending formData with", validFile.length, "images");
 
             const { data } = await axios.post('/api/product/add', formData)
 
@@ -46,7 +71,7 @@ const AddProduct = () => {
                 toast.error(data.message)
             }
         } catch (error) {
-
+console.error("Submit error:", error);
             toast.error(error.message)
         }
 
@@ -66,7 +91,7 @@ const AddProduct = () => {
                                     updatedFiles[index] = e.target.files[0]
                                     setFiles(updatedFiles)
                                 }}
-                                    type="file" id={`image${index}`} hidden />
+                                    type="file" id={`image${index}`}  accept="image/*" hidden />
 
                                 <img className="max-w-24 cursor-pointer" src={files[index] ?
                                     URL.createObjectURL(files[index]) : assets.upload_area} alt="uploadArea" width={100} height={100} />
@@ -113,3 +138,5 @@ const AddProduct = () => {
 }
 
 export default AddProduct
+
+
