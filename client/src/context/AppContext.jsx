@@ -129,29 +129,29 @@ export const AppContextProvider = ({ children }) => {
 
     // Update Database Cart Items
     useEffect(() => {
-        const updateCart = async ()=>{
+       
+     const updateCart = async ()=>{
         try {
             const { data } = await axios.post('/api/cart/update', {cartItems})
-            if (!data.success) {
+            if (!data.success){
                 toast.error(data.message)
-
             }
         } catch (error) {
-            toast.error(error.message)
+            toast.error(error.message) 
         }
-    }
+     }
 
-        if (user) {
-            updateCart()
-        }
+     if(user){
+        updateCart()
+
+     }
     
-
     }, [cartItems])
 
     const value = {
         navigate, user, setUser, setIsSeller, isSeller,
         showUserLogin, setshowUserLogin, products, currency, addToCart,
-        updateCartItem, removeFromCart, cartItems, searchQuery, setSearchQuery, getCartAmount, getCartCount, axios, fetchProducts
+        updateCartItem, removeFromCart, cartItems, searchQuery, setSearchQuery, getCartAmount, getCartCount, axios, fetchProducts, setCartItems
 
     }
 
@@ -164,3 +164,4 @@ export const AppContextProvider = ({ children }) => {
 export const useAppContext = () => {
     return useContext(AppContext)
 }
+

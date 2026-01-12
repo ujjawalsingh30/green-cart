@@ -6,6 +6,8 @@ import Product from "../models/Product.js";
 export const PlaceOrderCOD = async (req, res) => {
     try {
         const { userId, items, address } = req.body;
+       
+          
         if (!address || items.length === 0) {
             return res.json({ success: false, message: "Invalid data" })
         }
@@ -33,7 +35,7 @@ export const PlaceOrderCOD = async (req, res) => {
     }
 }
 
-// Get Order by User Id : /api/oredr/user
+// Get Order by User Id : /api/order/user
 export const getUserOrders = async (req, res) => {
     try {
         const { userId } = req.body;

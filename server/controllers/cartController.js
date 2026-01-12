@@ -4,7 +4,13 @@ import User from "../models/User.js"
 
 export const updateCart = async (req, res) => {
     try {
-        const { userId, cartItems } = req.body
+         const userId = req.userId;
+        const {cartItems } = req.body
+
+        if (!userId) {  // Added validation
+            return res.json({ success: false, message: "User not authenticated" });
+        }
+
         await User.findByIdAndUpdate(userId, { cartItems })
         res.json({ success: true, message: "Cart Updated" })
     } catch (error) {
@@ -12,3 +18,4 @@ export const updateCart = async (req, res) => {
         res.json({ success: false, message: error.message });
     }
 }
+
