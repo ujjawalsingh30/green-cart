@@ -252,6 +252,7 @@
 
 
 
+
 import Order from "../models/Order.js";
 import Product from "../models/Product.js";
 import stripe from 'stripe'
@@ -260,7 +261,8 @@ import User from '../models/User.js'
 // Place Order COD : /api/order/cod
 export const placeOrderCOD = async (req, res) => {
     try {
-        const { userId, items, address } = req.body;
+        const userId = req.userId;
+        const { items, address } = req.body;
         if (!address || items.length === 0) {
             return res.json({ success: false, message: "Invalid data" });
         }
