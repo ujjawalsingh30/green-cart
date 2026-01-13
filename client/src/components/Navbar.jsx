@@ -164,7 +164,7 @@ import toast from 'react-hot-toast'
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
-    const { user, setUser, setShowUserLogin, navigate, searchQuery, setSearchQuery, getCartCount, axios } = useAppContext()
+    const { user, setUser, setshowUserLogin, navigate, searchQuery, setSearchQuery, getCartCount, axios } = useAppContext()
 
     const logout = async () => {
         // setUser(null)
@@ -213,7 +213,7 @@ const Navbar = () => {
                     <button className="absolute -top-2 -right-3 text-xs text-white bg-primary w-[18px] h-[18px] rounded-full">{getCartCount()}</button>
                 </div>
 
-                {!user ? (<button onClick={() => setShowUserLogin(true)} className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-full">
+                {!user ? (<button onClick={() => setshowUserLogin(true)} className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-full">
                     Login
                 </button>) : (
                     <div className='relative group'>
@@ -251,7 +251,7 @@ const Navbar = () => {
 
                     {
                         !user ? (
-                            <button onClick={() => { setOpen(false); setShowUserLogin(true); }} className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm">
+                            <button onClick={() => { setOpen(false); setshowUserLogin(true); }} className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm">
                                 Login
                             </button>
                         ) : (
