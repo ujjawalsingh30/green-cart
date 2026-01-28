@@ -1,7 +1,5 @@
 # 🛒 GreenCart – Full-Stack E-Commerce Platform
 
-![GreenCart Preview](./screenshots/home.png)
-
 <p align="center">
   <img src="client/public/a1.png" alt="Prescripto Homepage Screenshot" />
 </p>
@@ -9,6 +7,7 @@
 **GreenCart** is a full-stack e-commerce web application featuring secure authentication, product management, image uploads, and **Stripe-powered payments**. The project demonstrates real-world MERN architecture with a clean UI and scalable backend.
 
 🌐 **Live Website:** https://green-cart-kohl-zeta.vercel.app
+
 📦 **Repository:** https://github.com/ujjawalsingh30/green-cart
 
 ---
@@ -203,8 +202,39 @@ npm run dev
 
 ---
 
+## Project Screenshots
+
+🗂 Categories Section
+
+Displays product categories like Organic Vegetables, Fresh Fruits, Dairy Products, Bakery, and Grains with attractive visuals for easy browsing.
+<p align="center">
+  <img src="client/public/a2.png" alt="Prescripto Homepage Screenshot" />
+</p>
+
+🛒 All Products Page
+
+A grid-based product listing showing item images, categories, ratings, discounted prices, and an “Add to Cart” option.
+<p align="center">
+  <img src="client/public/a4.png" alt="Prescripto Homepage Screenshot" />
+</p>
+
+🛍 Shopping Cart Page
+
+Shows selected products with quantity, subtotal, and remove options along with an order summary and payment method selection.
+<p align="center">
+  <img src="client/public/a3.png" alt="Prescripto Homepage Screenshot" />
+</p>
+
+💳 Checkout / Payment Page
+
+Secure checkout interface allowing users to enter contact details and complete payments using card or online payment options (test mode enabled).
+<p align="center">
+  <img src="client/public/a5.png" alt="Prescripto Homepage Screenshot" />
+</p>
+
+---
+
 ## 🏁 Conclusion
 
 **GreenCart** is a production-style e-commerce application showcasing **authentication, payments, image uploads, and secure APIs** using the MERN stack.
 
-![GreenCart Checkout](./screenshots/checkout.png)
