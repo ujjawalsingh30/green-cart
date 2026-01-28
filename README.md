@@ -2,6 +2,10 @@
 
 ![GreenCart Preview](./screenshots/home.png)
 
+<p align="center">
+  <img src="client/public/a1.png" alt="Prescripto Homepage Screenshot" />
+</p>
+
 **GreenCart** is a full-stack e-commerce web application featuring secure authentication, product management, image uploads, and **Stripe-powered payments**. The project demonstrates real-world MERN architecture with a clean UI and scalable backend.
 
 🌐 **Live Website:** https://green-cart-kohl-zeta.vercel.app
